@@ -31,3 +31,10 @@ function master_local() {
   export ROS_MASTER_URI=http://localhost:11311/
   export ROS_HOSTNAME=localhost
 }
+
+function add_date() {
+  filename=$(basename $1)
+  extension=${filename##*.}
+  filename="${filename%.*}"
+  mv $1 $(now)-${filename}.${extension}
+}
